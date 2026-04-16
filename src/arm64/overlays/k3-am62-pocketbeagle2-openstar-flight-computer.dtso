@@ -29,10 +29,10 @@
 &main_pmx0 {
 	main_spi0_pins: main-spi0-pins {
 		pinctrl-single,pins = <
-			AM62X_IOPAD(0x01bc, PIN_OUTPUT, 0) /* P2.25 (A14) SPI0_CLK */
-			AM62X_IOPAD(0x01c0, PIN_INPUT, 0) /* P2.27v(B13) SPI0_D0 */
-			AM62X_IOPAD(0x01c4, PIN_OUTPUT, 0) /* P2.29 SPI0_D1 */
-			AM62X_IOPAD(0x01b4, PIN_OUTPUT, 0) /* P2.31 (A13) SPI0_CS0 */
+			AM62X_IOPAD(0x01bc, PIN_OUTPUT, 0) /* P2.29 (A14) SPI0_CLK */
+			AM62X_IOPAD(0x01c0, PIN_INPUT, 0) /* P2.27 (B13) SPI0_D0 */
+			AM62X_IOPAD(0x01c4, PIN_OUTPUT, 0) /* P2.25 SPI0_D1 */
+			/*AM62X_IOPAD(0x01b4, PIN_OUTPUT, 0)*/ /* P2.31 (A13) SPI0_CS0 */
 			AM62X_IOPAD(0x01B8, PIN_OUTPUT, 0) /* P2.36 (C13) SPI0_CS1 */
 		>;
 	};
@@ -48,19 +48,18 @@
 			AM62X_IOPAD(0x00B0, PIN_INPUT_PULLUP, 1) /* P1.28 (K22) I2C2_SCL */
 		>;
 	};
-        main_i2c3_pins: main-i2c3-pins {
-                pinctrl-single,pins = <
-                        AM62X_IOPAD(0x01D0, PIN_INPUT_PULLUP, 2) /* P2.09 (A15) I2C3_SCL */
-                        AM62X_IOPAD(0x01D4, PIN_INPUT_PULLUP, 2) /* P2.11 (B15) I2C3_SDA */
-                >;
-        };
-
-    	main_uart3_pins_default: main-uart3-default-pins {
-        	pinctrl-single,pins = <
-            		AM62X_IOPAD(0x00C0, PIN_INPUT, 4) /* P2.06 (W25) UART3_RXD */
-            		AM62X_IOPAD(0x00C4, PIN_OUTPUT, 4) /* P2.08 (W24) UART3_TXD */
-        	>;
-    	};
+	main_i2c3_pins: main-i2c3-pins {
+		pinctrl-single,pins = <
+			AM62X_IOPAD(0x01D0, PIN_INPUT_PULLUP, 2) /* P2.09 (A15) I2C3_SCL */
+			AM62X_IOPAD(0x01D4, PIN_INPUT_PULLUP, 2) /* P2.11 (B15) I2C3_SDA */
+		>;
+	};
+	main_uart3_pins_default: main-uart3-default-pins {
+		pinctrl-single,pins = <
+			AM62X_IOPAD(0x00C0, PIN_INPUT, 4) /* P2.06 (W25) UART3_RXD */
+			AM62X_IOPAD(0x00C4, PIN_OUTPUT, 4) /* P2.08 (W24) UART3_TXD */
+		>;
+	};
 	main_prus_pins: main-prus-pins {
 		pinctrl-single,pins = <
 		AM62X_IOPAD(0x00FC, PIN_OUTPUT_PULLDOWN, 5) /* P1.29 - RCOUT 1*/
