@@ -30,9 +30,9 @@
 	main_spi0_pins: main-spi0-pins {
 		pinctrl-single,pins = <
 			AM62X_IOPAD(0x01bc, PIN_OUTPUT, 0) /* P2.29 (A14) SPI0_CLK */
-			AM62X_IOPAD(0x01c0, PIN_INPUT, 0) /* P2.27 (B13) SPI0_D0 */
-			AM62X_IOPAD(0x01c4, PIN_OUTPUT, 0) /* P2.25 SPI0_D1 */
-			/*AM62X_IOPAD(0x01b4, PIN_OUTPUT, 0)*/ /* P2.31 (A13) SPI0_CS0 */
+			AM62X_IOPAD(0x01c0, PIN_INPUT, 0) /* P2.27 (B13) SPI0_MISO */
+			AM62X_IOPAD(0x01c4, PIN_OUTPUT, 0) /* P2.25 SPI0_MOSI */
+			AM62X_IOPAD(0x01b4, PIN_OUTPUT, 0) /* P2.31 (A13) SPI0_CS0 */
 			AM62X_IOPAD(0x01B8, PIN_OUTPUT, 0) /* P2.36 (C13) SPI0_CS1 */
 		>;
 	};
