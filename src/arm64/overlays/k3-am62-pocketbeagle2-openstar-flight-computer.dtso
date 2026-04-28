@@ -62,7 +62,6 @@
 	};
 	main_prus_pins: main-prus-pins {
 		pinctrl-single,pins = <
-		AM62X_IOPAD(0x00FC, PIN_OUTPUT_PULLDOWN, 5) /* P1.29 - RCOUT 1*/
 		AM62X_IOPAD(0x00F0, PIN_OUTPUT_PULLDOWN, 5) /* P1.31 - RCOUT 2*/
 		AM62X_IOPAD(0x00E4, PIN_OUTPUT_PULLDOWN, 5) /* P1.33A - RCOUT 3*/
 		AM62X_IOPAD(0x00F4, PIN_OUTPUT_PULLDOWN, 5) /* P2.34 - RCOUT 4*/
@@ -79,6 +78,13 @@
 		/* AM62X_IOPAD(0x0160, PIN_OUTPUT_PULLDOWN, 7) */ /* P2.01 - BUZZER*/
 		>;
 	};
+
+	magnet_diagnostics_power_pin: magnet-diagnostics-power-pin {
+		pinctrl-single,pins = <
+		AM62X_IOPAD(0x00FC, PIN_OUTPUT, 7) /*P1.29*/
+		>;
+	};
+
 };
 
 &main_spi0 {
@@ -164,6 +170,8 @@
 };
 &main_gpio0 { 
 	status = "okay";
+	pinctrl-names = "default";
+	pinctrl-0 = <&magnet_diagnostics_power_pin>;
 };
 &main_gpio1 {
 	status = "okay";
