@@ -60,16 +60,6 @@
 			AM62X_IOPAD(0x00C4, PIN_OUTPUT, 4) /* P2.08 (W24) UART3_TXD */
 		>;
 	};
-	main_prus_pins: main-prus-pins {
-		pinctrl-single,pins = <
-		AM62X_IOPAD(0x00F0, PIN_OUTPUT_PULLDOWN, 5) /* P1.31 - RCOUT 2*/
-		AM62X_IOPAD(0x00E4, PIN_OUTPUT_PULLDOWN, 5) /* P1.33A - RCOUT 3*/
-		AM62X_IOPAD(0x00F4, PIN_OUTPUT_PULLDOWN, 5) /* P2.34 - RCOUT 4*/
-
-		AM62X_IOPAD(0x0104, PIN_INPUT_PULLUP, 8) /* P2.17 - RCINPUT*/
-		>;
-	};
-
 	main_led_pins: main-led-pins {
 		pinctrl-single,pins = <
 		AM62X_IOPAD(0x0174, PIN_OUTPUT_PULLDOWN, 7) /* P2.10 - LED C*/
@@ -167,12 +157,6 @@
 
 &main_uart5 {
 	status = "disabled";
-};
-
-&pruss {
-	pinctrl-names = "default";
-	pinctrl-0 = <&main_prus_pins>;
-	status = "okay";
 };
 &main_gpio0 { 
 	status = "okay";
