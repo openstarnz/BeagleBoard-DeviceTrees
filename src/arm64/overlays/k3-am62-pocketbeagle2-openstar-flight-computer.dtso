@@ -81,6 +81,17 @@
     AM62X_IOPAD(0x00E4, PIN_DISABLE, 7) /* (AA23) VOUT0_DATA11.GPIO0_56 */
     >;
   };
+
+	/* LSM6DS3TR-C interrupt outputs. Without these the pads keep their reset
+	 * mux, so the GPIOs never see the IMU's FIFO watermark and fc_imu has to
+	 * fall back to timed reads. Both INT pins are push-pull active high.
+	 */
+	imu_interrupt_pins: imu-interrupt-pins {
+		pinctrl-single,pins = <
+		AM62X_IOPAD(0x00E8, PIN_INPUT, 7) /* P2.32 (AB25) VOUT0_DATA12.GPIO0_57 - IMU INT1 */
+		AM62X_IOPAD(0x00F4, PIN_INPUT, 7) /* P2.34 (AA21) VOUT0_DATA15.GPIO0_60 - IMU INT2 */
+		>;
+	};
 };
 
 &main_spi0 {
@@ -158,10 +169,10 @@
 &main_uart5 {
 	status = "disabled";
 };
-&main_gpio0 { 
+&main_gpio0 {
 	status = "okay";
 	pinctrl-names = "default";
-	pinctrl-0 = <&magnet_diagnostics_power_pin>;
+	pinctrl-0 = <&magnet_diagnostics_power_pin &imu_interrupt_pins>;
 };
 &main_gpio1 {
 	status = "okay";
